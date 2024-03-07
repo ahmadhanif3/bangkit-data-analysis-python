@@ -4,9 +4,10 @@ from matplotlib import pyplot as plt
 
 @st.cache_data
 def load_data():
-    data = pd.read_csv('dashboard/main_data.csv')
-    data_changping = pd.read_csv('dashboard/changping_data.csv')
-    return [data, data_changping]
+    data = pd.read_csv("https://raw.githubusercontent.com/ahmadhanif3/bangkit-data-analysis-python/master/dashboard/main_data.csv")
+    data_changping = pd.read_csv("https://raw.githubusercontent.com/ahmadhanif3/bangkit-data-analysis-python/master/dashboard/changping_data.csv")
+
+    return data, data_changping
 
 data, data_changping = load_data()
 
@@ -25,29 +26,11 @@ tersebut diambil lalu dilakukan beberapa modifikasi. Dalam analisis, terdapat 2 
 - Pertanyaan 2: Adakah pengaruh hujan terhadap polutan SO2 dan NO2 di suatu stasiun?
 """)
 
-st.write("""
-Dalam melakukan analisis, diterapkan pre-processing atau data wrangling terlebih dahulu. Disatukan seluruh
-file csv dari sumber ke dalam satu dataframe. Kemudian, dianalisis dan dibersihkan dari hal-hal yang dapat menganggu.
-Hal tersebut adalah data duplikat, missing value, dan juga keberadaan outlier. 
-""")
-
 st.divider()
 
 st.header("Pertanyaan 1: Tren Polutan Berdasarkan Jam dan Bulan")
 
-st.write("""
-Bagaimana tren polutan dalam jangka waktu jam dan bulan
-
-Pada kasus ini saya ingin mencoba melihat apakah perbedaan waktu berpengaruh terhadap tingkat polutan yang ada. Di sini saya akan mengambil rata-rata dari masing-masing jangka waktu untuk menilainya. Ini berarti, contoh saya akan mengambil rata-rata polutan pada jam 1 siang dari keseluruhan data. Begitu pula untuk jangka waktu bulan, saya akan mengambil rata-rata seluruh hari pada bulan tersebut. Saya juga akan menggunakan dataset yang telah diterapkan pre-processing. Hal ini karena menurut saya meskipun sudah dilakukan imputasi dan masih adanya outlier, dari pengecekan ternyata data tersebut masih representatif terhadap data awal dan juga kasus di dunia nyata.
-
-Berikut adalah steps yang akan dilakukan:
-1. Membuat list dari atribut polutan
-2. Mengelompokkan data berdasarkan jangka waktu (jam dan bulan)
-3. Menghitung rata-rata saat dikelompokkan
-4. Menampilkan pada line chart, beserta nilai tertinggi dan terendah dari masing-masing polutan
-
-Di sini, saya memisahkan line chart `CO`. Hal ini dikarenakan nilai dari `CO` secara signifikan lebih besar sehingga akan membuat line chart menjadi terlalu kecil
-""")
+st.write("Bagaimana tren polutan dalam jangka waktu jam dan bulan")
 
 pollutants = ['PM2.5', 'PM10', 'SO2', 'NO2', 'O3', 'CO']
 
@@ -101,16 +84,7 @@ st.divider()
 
 st.header("Pertanyaan 2: Pengaruh Hujan Terhadap Polutan SO2 dan NO2 di Stasiun Changping")
 
-st.write("""
-Pengelompokkan tingkat SO2 dan NO2 berdasarkan kondisi hujan di stasiun Changping
-
-Pada kasus ini saya ingin mencoba melihat apakah hujan dapat berpengaruh terhadap tingkat `SO2` dan `NO2`. Harapannya, akan muncul kelompok atau *clusters* dari data-data. Dikarenakan ada banyaknya data pada dataset, saya akan lebih spesifik meninjau data dari stasiun Changping. Selain itu, saya juga membatasi variabel yang mana `Rain` hanya akan bernilai YA atau TIDAK. Hal ini dikarenakan jika menggunakan value presitipasi hujan dari atribut tersebut, maka akan terlalu banyak variabel yang ditinjau.
-
-Berikut adalah steps yang akan dilakukan:
-1. Membuat data terpisah dari stasiun Changping
-2. Membuat `Rain_Status` yang menunjukkan apakah sedang hujan atau tidak saat pengambilan data
-3. Menampilkan pada scatter plot, dengan harapan akan munculnya pengelompokkan
-""")
+st.write("Pengelompokkan tingkat SO2 dan NO2 berdasarkan kondisi hujan di stasiun Changping")
 
 colors = {'YA': 'blue', 'TIDAK': 'green'}
 
