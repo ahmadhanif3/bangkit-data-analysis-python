@@ -72,12 +72,10 @@ st.pyplot(plot_co(monthly_avg_CO, 'Rata-Rata Konsentrasi CO Dalam Interval Bulan
 st.write("""
 Berdasarkan visualisasi dari data yang telah dibuat di atas, diperoleh beberapa konklusi:
 1. Baik perbulan maupun perjam, tingkat konsentrasi `SO2` adalah yang terendah dibandingkan polutan lainnya
-2. Di sekitar jam siang, mulai dari sekitar jam 10, hampir seluruh polutan akan mengalami penurunan. Kecuali untuk `O3`. Hal ini menunjukkan adanya korelasi negatif antara `O3` dan polutan lainnya. 
+2. Di sekitar jam siang, mulai dari sekitar jam 10, hampir seluruh polutan akan mengalami penurunan. Kecuali untuk `O3`. 
 3. `O3` memiliki perubahan yang paling signifikan, dengan beda value tertinggi dan terendah yaitu sekitar 77 satuan konsentrasi baik perjam maupun perbulan
 4. Secara keseluruhan, udara memiliki tingkat polutan yang secara rata-rata paling rendah adalah pada term 3, atau sekitar bulan 7, 8, dan 9.
 5. Polutan mendekati tengah malam dan juga mendekati akhir tahun akan meningkat.
-
-Masih banyak lagi kesimpulan yang dapat diambil dari pengolahan di atas. Namun, beberapa poin di atas dapat berguna.
 """)
 
 st.divider()
@@ -106,6 +104,4 @@ Berdasarkan visualisasi dan pengolahan dari data yang telah dibuat di atas, dipe
 2. Pada saat hujan, konsentrasi `NO2` akan secara mayoritas berada di bawah 100 satuan.
 3. Tidak terbentuk *clustering* dengan sempurna, namun data sedang hujan secara mayoritas terdapat di suatu kelompok di kiri bawah visualisasi.
 4. Untuk kedepannya, dapat dimasukkan pula variabel intensitas hujan agar makin terlihat pengelompokkannya.
-
-Menurut saya itu adalah kesimpulan yang dapat diambil, penyempurnaan variabel yang digunakan bisa memperbaiki *clustering* yang terbentuk agar semakin terlihat pengelompokkannya.
 """)
